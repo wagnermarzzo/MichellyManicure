@@ -1,47 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michelly Vanessa Unhas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michelly Vanessa Unhas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Michelly Vanessa Unhas</h1>
-        <p>Manicure, Pedicure, Unha em Gel e mais!</p>
-    </header>
 
-    <nav>
-        <a href="#servicos">Serviços</a>
-        <a href="#agendar">Agendar</a>
-        <a href="#contato">Contato</a>
-    </nav>
+<header>
+  <h1>Michelly Vanessa Unhas</h1>
+</header>
 
-    <section id="servicos">
-        <h2>Nossos Serviços</h2>
-        <ul>
-            <li>Manicure e Pedicure Tradicional</li>
-            <li>Unha em Gel e Fibra</li>
-            <li>Decoração Personalizada</li>
-            <li>Spa dos Pés</li>
-        </ul>
-    </section>
+<div class="hero">
+  Realce sua beleza com unhas perfeitas!
+</div>
 
-    <section id="agendar">
-        <h2>Agende seu horário</h2>
-        <p>Garanta já o seu atendimento com hora marcada. Pagamento antecipado via Pix: <strong>09706792465</strong></p>
-        <a href="https://wa.me/55SEUNUMERO" class="botao">Agendar pelo WhatsApp</a>
-    </section>
+<section class="services">
+  <h2>Serviços Oferecidos</h2>
+  <ul>
+    <li>Manicure e Pedicure Tradicional</li>
+    <li>Unha em Gel</li>
+    <li>Unha em Fibra</li>
+    <li>Decoração Personalizada</li>
+  </ul>
+</section>
 
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>WhatsApp: <a href="https://wa.me/55SEUNUMERO">(55) SEU-NUMERO</a></p>
-        <p>Instagram: <a href="https://instagram.com/SEUINSTAGRAM" target="_blank">@SEUINSTAGRAM</a></p>
-    </section>
+<section class="gallery">
+  <img src="https://i.imgur.com/Jh4jwEL.jpg" alt="Unha 1">
+  <img src="https://i.imgur.com/8ZkBev5.jpg" alt="Unha 2">
+  <img src="https://i.imgur.com/qVWpO0L.jpg" alt="Unha 3">
+  <img src="https://i.imgur.com/xJjY6mx.jpg" alt="Unha 4">
+</section>
 
-    <footer>
-        <p>&copy; 2025 Michelly Vanessa Unhas - Todos os direitos reservados</p>
-    </footer>
+<section class="agendamento">
+  <h2>Agende seu horário</h2>
+  <form id="formAgendamento">
+    <div class="form-group">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+    <div class="form-group">
+      <label for="telefone">WhatsApp:</label>
+      <input type="tel" id="telefone" name="telefone" required>
+    </div>
+    <div class="form-group">
+      <label for="servico">Serviço desejado:</label>
+      <select id="servico" name="servico" required>
+        <option value="">Escolha um serviço</option>
+        <option>Manicure e Pedicure</option>
+        <option>Unha em Gel</option>
+        <option>Unha em Fibra</option>
+        <option>Decoração</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="data">Data (sexta ou sábado):</label>
+      <input type="date" id="data" name="data" required>
+    </div>
+    <div class="form-group">
+      <label for="hora">Horário:</label>
+      <select id="hora" name="hora" required>
+        <option value="">Escolha um horário</option>
+        <option>18:00 (sexta)</option>
+        <option>20:00 (sexta)</option>
+        <option>07:00 (sábado)</option>
+        <option>09:00 (sábado)</option>
+        <option>11:00 (sábado)</option>
+        <option>14:00 (sábado)</option>
+        <option>17:00 (sábado)</option>
+        <option>19:00 (sábado)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="obs">Observações (opcional):</label>
+      <textarea id="obs" name="obs"></textarea>
+    </div>
+
+    <p><b>Taxa de agendamento:</b> R$15,00 via Pix</p>
+    <p>Pix: 08751416417 (Michelly Vanessa Pessoa - Banco Itaú)</p>
+
+    <button type="button" class="btn" onclick="enviarWhatsApp()">Gerar Comprovante e Enviar WhatsApp</button>
+  </form>
+</section>
+
+<footer>
+  WhatsApp: (11) 96465-7571 | Instagram @michellyvanessaunhas
+</footer>
+
+<script>
+  function enviarWhatsApp() {
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const servico = document.getElementById('servico').value;
+    const data = document.getElementById('data').value;
+    const hora = document.getElementById('hora').value;
+    const obs = document.getElementById('obs').value;
+
+    const mensagem = `Olá! Meu nome é ${nome}, telefone ${telefone}. Gostaria de agendar o serviço: ${servico} para o dia ${data} às ${hora}. Observações: ${obs}. Segue o comprovante de agendamento e Pix.`;
+
+    const url = `https://wa.me/5511964657571?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+  }
+</script>
+
 </body>
 </html>
